@@ -1,16 +1,39 @@
-# This is a sample Python script.
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+# Advent of code
+# --- Day 6: Guard Gallivant ---
+
+def read_input(filename: str):
+
+    with open(filename, 'r') as f:
+        rows = f.readlines()
+
+    return rows
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def create_bool_matrix(rows, pattern:str):
+
+    bool_matrix = []
+    for i, line in enumerate(rows):
+        print(line)
+
+        bool_row = []
+        for j, symbol in enumerate(line.strip()):
+            print(symbol)
+            if symbol == pattern:
+                # print('je tu hash')
+                bool_row.append(True)
+            else:
+                # print('je tu tecka')
+                bool_row.append(False)
+            # print('------')
+        bool_matrix.append(bool_row)
+
+    return bool_matrix
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    # Read and close file
+    lab = read_input("input.txt")
+    bool_hash = create_bool_matrix(lab, '#')
+    # print(lab)
+    # print(bool_hash)
