@@ -1,3 +1,11 @@
+
+def read_input(filename: str):
+
+    with open(filename, 'r') as f:
+        rows = f.readlines()
+
+    return rows
+
 def create_bool_matrix(rows, pattern: str):
     bool_matrix = []
     symbol_indexes = []
@@ -14,11 +22,13 @@ def create_bool_matrix(rows, pattern: str):
 
     return symbol_indexes, bool_matrix
 
+
 def count_false(matrix):
     count = 0
     for row in matrix:
         count += row.count(False)  # Count True values in each row
     return count
+
 
 def check_all_directions(lab, path, row, column, up, right, down, left):
 

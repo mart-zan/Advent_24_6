@@ -3,22 +3,9 @@ import functions_path as fnc
 # Advent of code
 # --- Day 6: Guard Gallivant ---
 
-def read_input(filename: str):
-
-    with open(filename, 'r') as f:
-        rows = f.readlines()
-
-    return rows
-
-
-# def create_bool_matrix(rows, pattern:str):
-
-
-
-
 if __name__ == '__main__':
     # Read and close file
-    lab_symbols = read_input("input.txt")
+    lab_symbols = fnc.read_input("input.txt")
     n, lab = fnc.create_bool_matrix(lab_symbols, '#')
     idxs, path = fnc.create_bool_matrix(lab_symbols, '^')
     # Initialize directions
@@ -35,7 +22,8 @@ if __name__ == '__main__':
         if row < 0 or row >= len(lab) or column < 0 or column >= len(lab[0]):
             break  # Exit the loop
 
-        lab, path, row, column, up, right, down, left =  fnc.check_all_directions(lab, path, row, column, up, right, down, left)
+        lab, path, row, column, up, right, down, left =  \
+            fnc.check_all_directions(lab, path, row, column, up, right, down, left)
 
     print('Final number of steps is', fnc.count_false(path), '.')
 
